@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 const express = require('express');
 const ky = require('ky-universal');
 const bodyParser = require('body-parser');

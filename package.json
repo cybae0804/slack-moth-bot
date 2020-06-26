@@ -11,6 +11,5 @@
   },
   "scripts": {
     "start": "node app.js"
-  },
-  "devDependencies": {}
+  }
 }
