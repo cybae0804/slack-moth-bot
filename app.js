@@ -15,7 +15,6 @@ let userNameMap = {};
 // Because this is an async function, it cannot return the response directly back to slack.
 // Therefore, it uses response_url to send the response text back.
 async function addUser(url, channel_id, user_id, alias) {
-  if (!user_id) return 'Please provide a user id.';
   let response = `User *${user_id}* is already in this channel.`;
   if (!channelUsersMap[channel_id]) channelUsersMap[channel_id] = [];
   if (!channelUsersMap[channel_id].includes(user_id)) {
@@ -152,6 +151,7 @@ function handler(body) {
   switch (command) {
     case 'add': {
       if (channel_name === 'directmessage') return 'Direct Messages cannot be used.';
+      if (!arg1) return 'Please provide a user id.';
       return addUser(
         response_url,
         channel_id,
